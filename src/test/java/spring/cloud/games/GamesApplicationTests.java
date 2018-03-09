@@ -7,11 +7,17 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
+@SpringBootTest(classes = GamesApplication.class,
+    properties = "game.library_url=http://localhost:6565/gameslist",
+    webEnvironment = WebEnvironment.NONE)
+@AutoConfigureStubRunner(ids = {"spring.cloud:games:+:stubs:6565"}, workOffline = true)
+@DirtiesContext
 public class GamesApplicationTests {
 
   @Autowired
@@ -29,6 +35,6 @@ public class GamesApplicationTests {
   @Test
   public void testGetGamesListFromMicroservice() {
 
-    assertThat(this.gamesController.list()).isEqualTo("game1,game2,game3");
+    assertThat(this.gamesController.list()).isEqualTo("games1, games2, games3");
   }
 }
