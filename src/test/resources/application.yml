@@ -13,4 +13,4 @@ spring:
 #  idsToServiceIds:
 #    library-service: library-service
 #server:
-  port: 9999
+  #port: 9999
