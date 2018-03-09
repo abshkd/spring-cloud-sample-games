@@ -23,6 +23,8 @@ services are involved.
  done by using a RestTemplate bean without Ribbon, changing external URL to localhost and optionally
  a Security Configuration that allows access to localhost Mock Controller.
  
- - Use Spring Cloud Contracts verifier + Spring Cloud Stub Runner
+ - Use Spring Cloud Contracts verifier with `<skipTests>True</sckipTests>` + 
+ Spring Cloud Stub Runner. See branch `spring-cloud-contracts`
+ [![Build Status](https://travis-ci.org/abshkd/spring-cloud-sample-games.svg?branch=spring-cloud-contracts)](https://travis-ci.org/abshkd/spring-cloud-sample-games)
  
  - Docker based TestExecutionListener
