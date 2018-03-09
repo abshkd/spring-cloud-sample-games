@@ -1,0 +1,14 @@
+game:
+  library_url: http://localhost:9999/mock/gameslist
+eureka:
+  client:
+    enabled: false
+spring:
+  cloud:
+    config:
+      failfast: false
+stubrunner:
+  idsToServiceIds:
+    library-service: library-service
+server:
+  port: 9999
