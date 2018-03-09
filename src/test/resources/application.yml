@@ -7,8 +7,10 @@ spring:
   cloud:
     config:
       failfast: false
-stubrunner:
-  idsToServiceIds:
-    library-service: library-service
-server:
+  profiles:
+    active: test
+#stubrunner:
+#  idsToServiceIds:
+#    library-service: library-service
+#server:
   port: 9999

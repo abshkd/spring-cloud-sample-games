@@ -1,6 +1,7 @@
 package spring.cloud.games;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -8,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 * Only needed if you use Spring Security
  */
 @Configuration
+@Profile("test")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override

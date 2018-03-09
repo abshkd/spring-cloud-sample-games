@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 */
 @Configuration
 @Profile("test")
-@Order(1)
 public class RestClientConfig {
 
   @Bean
