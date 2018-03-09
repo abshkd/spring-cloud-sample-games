@@ -1,7 +1,5 @@
 package spring.cloud.games;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,16 +10,22 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("/games")
 public class GamesController {
 
-  @Autowired
   RestTemplate restTemplate;
 
+  GamesProperties gamesProperties;
+
+  public GamesController(RestTemplate restTemplate, GamesProperties gamesProperties) {
+    this.restTemplate = restTemplate;
+    this.gamesProperties = gamesProperties;
+  }
+
   /*
-  * Fetch a String of items from another microservice
-   */
+    * Fetch a String of items from another microservice
+     */
   @RequestMapping("/list")
   public String list() {
-    ResponseEntity<String> response =  restTemplate
-        .exchange("http://library-service/gameslist", HttpMethod.GET, null, String.class);
+    ResponseEntity<String> response = restTemplate
+        .exchange(this.gamesProperties.getLibraryUrl(), HttpMethod.GET, null, String.class);
     return response.getBody();
   }
 }
