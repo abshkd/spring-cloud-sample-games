@@ -10,7 +10,7 @@ Contract.make {
     }
     response {
         status 200
-        body("games1, games2, games3")
+        body("game1, game2, game3")
     }
 
 }

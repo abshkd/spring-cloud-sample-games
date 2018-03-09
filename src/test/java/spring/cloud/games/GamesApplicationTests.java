@@ -35,6 +35,6 @@ public class GamesApplicationTests {
   @Test
   public void testGetGamesListFromMicroservice() {
 
-    assertThat(this.gamesController.list()).isEqualTo("games1, games2, games3");
+    assertThat(this.gamesController.list()).isEqualTo("game1, game2, game3");
   }
 }

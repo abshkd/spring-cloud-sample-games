@@ -123,11 +123,16 @@
 			<plugin>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-contract-maven-plugin</artifactId>
+
 				<version>1.2.1.RELEASE</version>
 				<extensions>true</extensions>
 				<configuration>
-					<!--<testMode>EXPLICIT</testMode>-->
-					<baseClassForTests>spring.cloud.games.GamesApplicationTests</baseClassForTests>
+					<!-- Skip tests for contract verifier as we are not producers-->
+					<skipTests>true</skipTests>
+					<!-- If you want to Proxy and record
+					<testMode>EXPLICIT</testMode>
+					-->
+					<baseClassForTests>spring.cloud.games.BaseClass</baseClassForTests>
 				</configuration>
 			</plugin>
 			<plugin>
