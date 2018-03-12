@@ -10,11 +10,9 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.web.client.RestTemplate;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = GamesApplication.class,
-    properties = "game.library_url=http://localhost:6565/gameslist",
     webEnvironment = WebEnvironment.NONE)
 @AutoConfigureStubRunner(ids = {"spring.cloud:games:+:stubs:6565"}, workOffline = true)
 @DirtiesContext
@@ -24,9 +22,6 @@ public class GamesApplicationTests {
   GamesController gamesController;
   @Autowired
   GamesProperties gamesProperties;
-
-  @Autowired
-  private RestTemplate restTemplate;
 
   @Test
   public void contextLoads() {

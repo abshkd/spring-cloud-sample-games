@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @Profile("!test")
-public class RestCllientConfig {
+public class RestClientConfig {
 
   @Bean
   @LoadBalanced
