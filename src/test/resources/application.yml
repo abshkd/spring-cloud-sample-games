@@ -1,5 +1,5 @@
 game:
-  library_url: http://localhost:9999/mock/gameslist
+  library_url: http://library-service/gameslist
 eureka:
   client:
     enabled: false
@@ -9,8 +9,6 @@ spring:
       failfast: false
   profiles:
     active: test
-#stubrunner:
-#  idsToServiceIds:
-#    library-service: library-service
-#server:
-  port: 9999
+stubrunner:
+  idsToServiceIds:
+    games: library-service

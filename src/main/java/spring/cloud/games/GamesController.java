@@ -1,5 +1,7 @@
 package spring.cloud.games;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +26,12 @@ public class GamesController {
      */
   @RequestMapping("/list")
   public String list() {
+    HttpHeaders httpHeaders = new HttpHeaders();
+    httpHeaders.add("Authorization", "Bearer VALID_TOKEN");
+    HttpEntity requestEntity = new HttpEntity(httpHeaders);
     ResponseEntity<String> response = restTemplate
-        .exchange(this.gamesProperties.getLibraryUrl(), HttpMethod.GET, null, String.class);
+        .exchange(this.gamesProperties.getLibraryUrl(), HttpMethod.GET, requestEntity,
+            String.class);
     return response.getBody();
   }
 }
