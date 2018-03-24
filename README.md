@@ -26,5 +26,6 @@ services are involved.
  - Use Spring Cloud Contracts verifier with `<skipTests>True</sckipTests>` + 
  Spring Cloud Stub Runner. See branch `spring-cloud-contracts`
  [![Build Status](https://travis-ci.org/abshkd/spring-cloud-sample-games.svg?branch=spring-cloud-contracts)](https://travis-ci.org/abshkd/spring-cloud-sample-games)
+
  
  - Docker based TestExecutionListener
